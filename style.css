@@ -1,0 +1,1118 @@
+/* 基础样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+        linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    overflow-x: hidden;
+    font-size: 18px; /* 增大基础字体 */
+}
+
+/* 新的游戏布局 */
+.game-layout {
+    display: flex;
+    gap: 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+    align-items: flex-start;
+    min-height: calc(100vh - 40px);
+}
+
+/* 左侧积分板 */
+.score-panel {
+    width: 280px;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(20px);
+    border-radius: 30px;
+    padding: 35px;
+    box-shadow: 
+        0 30px 80px rgba(0, 0, 0, 0.2),
+        0 0 0 1px rgba(255, 255, 255, 0.4),
+        inset 0 2px 0 rgba(255, 255, 255, 0.8);
+    position: sticky;
+    top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.score-header h1 {
+    font-size: 42px;
+    color: #333;
+    margin: 0;
+    text-align: center;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.1);
+    font-weight: 800;
+}
+
+.score-section {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.score-item {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e3f2fd 100%);
+    border-radius: 25px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 
+        inset 0 3px 6px rgba(255, 255, 255, 0.9),
+        0 6px 20px rgba(0, 0, 0, 0.08);
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.score-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+        inset 0 3px 6px rgba(255, 255, 255, 0.9),
+        0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+.score-label {
+    font-size: 20px;
+    color: #666;
+    margin-bottom: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.score-value {
+    font-size: 40px;
+    font-weight: 900;
+    color: #333;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.score-item.highlight .score-value {
+    color: #ff6b6b;
+    transform: scale(1.15);
+    text-shadow: 
+        0 0 20px rgba(255, 107, 107, 0.8),
+        0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* 右侧游戏区域 */
+.game-container {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(20px);
+    border-radius: 30px;
+    padding: 40px;
+    box-shadow: 
+        0 30px 80px rgba(0, 0, 0, 0.2),
+        0 0 0 1px rgba(255, 255, 255, 0.4),
+        inset 0 2px 0 rgba(255, 255, 255, 0.8);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    min-width: 680px;
+}
+
+/* 游戏控制区域 */
+.game-controls {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 30px 0 20px 0;
+    flex-wrap: wrap;
+}
+
+.game-info {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.game-info p {
+    font-size: 16px;
+    color: #666;
+    margin: 0;
+    line-height: 1.5;
+    font-weight: 400;
+}
+
+.game-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+}
+
+/* 头部样式 */
+.header {
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    color: #333;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.score-container {
+    display: flex;
+    justify-content: space-around;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e3f2fd 100%);
+    border-radius: 20px;
+    padding: 20px;
+    margin: 0 auto;
+    box-shadow: 
+        inset 0 2px 4px rgba(255, 255, 255, 0.8),
+        0 4px 12px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.score-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.score-item .label {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.score-item span:last-child {
+    font-size: 22px;
+    font-weight: bold;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+.score-item.highlight span:last-child {
+    color: #ff6b6b;
+    transform: scale(1.2);
+    text-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
+}
+
+/* 游戏棋盘样式 */
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    gap: 6px;
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    border-radius: 20px;
+    padding: 25px;
+    width: 600px;
+    height: 600px;
+    box-shadow: 
+        inset 0 6px 12px rgba(0, 0, 0, 0.4),
+        0 15px 40px rgba(0, 0, 0, 0.3),
+        0 0 0 3px rgba(255, 255, 255, 0.1);
+    border: 3px solid rgba(255, 255, 255, 0.15);
+    position: relative;
+    margin: 0 auto;
+}
+
+.game-board::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    background: linear-gradient(45deg, rgba(102, 126, 234, 0.3), rgba(118, 75, 162, 0.3));
+    border-radius: 23px;
+    z-index: -1;
+}
+
+/* 方块样式 */
+.cell {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: grab;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    font-size: 40px;
+    user-select: none;
+    transform-origin: center;
+    box-shadow: 
+        inset 0 3px 6px rgba(255, 255, 255, 0.9),
+        0 6px 15px rgba(0, 0, 0, 0.15);
+    border: 3px solid rgba(255, 255, 255, 0.7);
+}
+
+.cell:hover {
+    transform: scale(1.08);
+    box-shadow: 
+        inset 0 2px 4px rgba(255, 255, 255, 0.9),
+        0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.cell.selected {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+    border: 3px solid #ffd700;
+}
+
+.cell.highlight {
+    animation: pulse 0.6s infinite alternate;
+}
+
+.cell.dragging {
+    cursor: grabbing;
+    transform: scale(1.2) rotate(5deg);
+    z-index: 1000;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    opacity: 0.9;
+}
+
+.cell.drag-over {
+    background: rgba(255, 215, 0, 0.3) !important;
+    border: 2px dashed #ffd700;
+    transform: scale(1.05);
+}
+
+.cell.swapping {
+    animation: swapAnimation 0.5s ease-in-out;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.1); }
+}
+
+@keyframes swapAnimation {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2) rotate(10deg); }
+    100% { transform: scale(1); }
+}
+
+/* 不同颜色的方块 */
+.cell.color-0 { 
+    background: linear-gradient(135deg, #ff6b6b 0%, #ff5252 50%, #ee5a52 100%); 
+    box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.3), 0 2px 8px rgba(255, 107, 107, 0.4);
+} /* 红色 */
+
+.cell.color-1 { 
+    background: linear-gradient(135deg, #4ecdc4 0%, #26a69a 50%, #44a08d 100%); 
+    box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.3), 0 2px 8px rgba(78, 205, 196, 0.4);
+} /* 青色 */
+
+.cell.color-2 { 
+    background: linear-gradient(135deg, #45b7d1 0%, #2196f3 50%, #1976d2 100%); 
+    box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.3), 0 2px 8px rgba(69, 183, 209, 0.4);
+} /* 蓝色 */
+
+.cell.color-3 { 
+    background: linear-gradient(135deg, #96ceb4 0%, #66bb6a 50%, #4caf50 100%); 
+    box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.3), 0 2px 8px rgba(150, 206, 180, 0.4);
+} /* 绿色 */
+
+.cell.color-4 { 
+    background: linear-gradient(135deg, #feca57 0%, #ffb74d 50%, #ff9f43 100%); 
+    box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.3), 0 2px 8px rgba(254, 202, 87, 0.4);
+} /* 黄色 */
+
+.cell.color-5 { 
+    background: linear-gradient(135deg, #a55eea 0%, #9c27b0 50%, #8e44ad 100%); 
+    box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.3), 0 2px 8px rgba(165, 94, 234, 0.4);
+} /* 紫色 */
+
+/* 方块图标 - 饮品主题 */
+.cell.color-0::before { 
+    content: '🥤'; /* 可乐/汽水 */
+    font-size: 45px;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4));
+}
+
+.cell.color-1::before { 
+    content: '🧃'; /* 果汁盒 */
+    font-size: 45px;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4));
+}
+
+.cell.color-2::before { 
+    content: '☕'; /* 咖啡 */
+    font-size: 45px;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4));
+}
+
+.cell.color-3::before { 
+    content: '🍹'; /* 鸡尾酒 */
+    font-size: 45px;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4));
+}
+
+.cell.color-4::before { 
+    content: '🧋'; /* 珍珠奶茶 */
+    font-size: 45px;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4));
+}
+
+.cell.color-5::before { 
+    content: '🥛'; /* 牛奶 */
+    font-size: 45px;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4));
+}
+
+/* 消除动画 */
+.cell.removing {
+    animation: removeAnimation 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    pointer-events: none;
+    z-index: 10;
+}
+
+@keyframes removeAnimation {
+    0% { 
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+        filter: brightness(1) saturate(1);
+        box-shadow: 
+            inset 0 2px 4px rgba(255, 255, 255, 0.3),
+            0 0 0px rgba(255, 255, 255, 0);
+    }
+    30% {
+        transform: scale(1.3) rotate(120deg);
+        opacity: 0.9;
+        filter: brightness(1.8) saturate(1.5);
+        box-shadow: 
+            inset 0 2px 4px rgba(255, 255, 255, 0.3),
+            0 0 30px rgba(255, 255, 255, 0.8);
+    }
+    60% { 
+        transform: scale(1.6) rotate(240deg);
+        opacity: 0.6;
+        filter: brightness(2.5) saturate(2);
+        box-shadow: 
+            inset 0 2px 4px rgba(255, 255, 255, 0.3),
+            0 0 50px rgba(255, 255, 255, 1);
+    }
+    100% { 
+        transform: scale(0) rotate(360deg);
+        opacity: 0;
+        filter: brightness(3) saturate(0);
+        box-shadow: 
+            inset 0 2px 4px rgba(255, 255, 255, 0.3),
+            0 0 80px rgba(255, 255, 255, 0);
+    }
+}
+
+/* 下落动画 */
+.cell.falling {
+    animation: fallAnimation 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+@keyframes fallAnimation {
+    0% { 
+        transform: translateY(-200px) scale(0.8);
+        opacity: 0;
+    }
+    50% {
+        transform: translateY(-50px) scale(1.1);
+        opacity: 0.7;
+    }
+    80% {
+        transform: translateY(10px) scale(1.05);
+        opacity: 0.9;
+    }
+    100% { 
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+}
+
+/* 弹跳效果 */
+.cell.bouncing {
+    animation: bounceAnimation 0.4s ease-out;
+}
+
+@keyframes bounceAnimation {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+    100% { transform: scale(1); }
+}
+
+/* 粒子效果容器 */
+.particle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1001;
+}
+
+.particle.explode {
+    animation: explodeAnimation 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@keyframes explodeAnimation {
+    0% {
+        transform: scale(1) translate(0, 0);
+        opacity: 1;
+    }
+    20% {
+        transform: scale(1.5) translate(calc(var(--dx) * 0.3), calc(var(--dy) * 0.3));
+        opacity: 0.9;
+    }
+    60% {
+        transform: scale(1.2) translate(calc(var(--dx) * 0.8), calc(var(--dy) * 0.8));
+        opacity: 0.6;
+    }
+    100% {
+        transform: scale(0) translate(var(--dx), var(--dy));
+        opacity: 0;
+    }
+}
+
+/* 摇摆动画（失败反馈） */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px) rotate(-2deg); }
+    50% { transform: translateX(5px) rotate(2deg); }
+    75% { transform: translateX(-3px) rotate(-1deg); }
+}
+
+/* 按钮样式 */
+.game-controls {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.btn-secondary {
+    background: linear-gradient(135deg, #f093fb, #f5576c);
+    color: white;
+}
+
+.btn-secondary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(240, 147, 251, 0.4);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+/* 游戏信息 */
+.game-info {
+    margin-top: 20px;
+    color: #666;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* 弹窗样式 */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal-content {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    animation: modalAppear 0.3s ease-out;
+}
+
+@keyframes modalAppear {
+    0% {
+        opacity: 0;
+        transform: scale(0.8) translateY(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.modal-content h2 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.modal-content p {
+    color: #666;
+    margin-bottom: 30px;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* 引导界面样式 */
+.tutorial-modal .modal-content {
+    max-width: 600px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.95) 100%);
+    backdrop-filter: blur(20px);
+    border-radius: 30px;
+    padding: 40px;
+    box-shadow: 
+        0 30px 80px rgba(0, 0, 0, 0.2),
+        0 0 0 1px rgba(255, 255, 255, 0.4),
+        inset 0 2px 0 rgba(255, 255, 255, 0.8);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.tutorial-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.tutorial-header h2 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.tutorial-progress {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    justify-content: center;
+}
+
+.progress-bar {
+    width: 200px;
+    height: 8px;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    border-radius: 10px;
+    transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    width: 25%;
+    box-shadow: 0 0 10px rgba(102, 126, 234, 0.5);
+}
+
+.progress-text {
+    font-size: 14px;
+    color: #666;
+    font-weight: 600;
+}
+
+.tutorial-body {
+    min-height: 200px;
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.tutorial-step {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    transform: translateX(30px);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    text-align: center;
+}
+
+.tutorial-step.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.tutorial-step.prev {
+    transform: translateX(-30px);
+}
+
+.tutorial-icon {
+    font-size: 48px;
+    margin-bottom: 20px;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+.tutorial-step h3 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.tutorial-step p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+}
+
+.bomb-demo, .rainbow-demo {
+    display: inline-block;
+    animation: pulse 2s infinite;
+    font-size: 20px;
+}
+
+.tutorial-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.btn-outline {
+    background: transparent;
+    color: #666;
+    border: 2px solid #ddd;
+}
+
+.btn-outline:hover {
+    background: #f8f9fa;
+    border-color: #ccc;
+    transform: translateY(-2px);
+}
+
+.modal-controls {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+/* 增强按钮样式 */
+.btn {
+    padding: 16px 32px;
+    border: none;
+    border-radius: 30px;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    outline: none;
+    position: relative;
+    overflow: hidden;
+    text-transform: none;
+    letter-spacing: 0.5px;
+    min-width: 140px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+.btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+.btn:disabled:hover {
+    transform: none !important;
+}
+
+/* 特殊道具样式 */
+.cell.bomb {
+    background: radial-gradient(circle, #ff4757 0%, #ff3742 50%, #ff2f3a 100%) !important;
+    box-shadow: 
+        inset 0 2px 4px rgba(255, 255, 255, 0.3),
+        0 0 20px rgba(255, 71, 87, 0.6),
+        0 4px 15px rgba(0, 0, 0, 0.2) !important;
+    animation: bombPulse 2s infinite;
+}
+
+.cell.bomb::before {
+    content: '💣';
+    font-size: 45px;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4));
+}
+
+@keyframes bombPulse {
+    0%, 100% { 
+        box-shadow: 
+            inset 0 2px 4px rgba(255, 255, 255, 0.3),
+            0 0 20px rgba(255, 71, 87, 0.6),
+            0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+    50% { 
+        box-shadow: 
+            inset 0 2px 4px rgba(255, 255, 255, 0.3),
+            0 0 30px rgba(255, 71, 87, 0.8),
+            0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+}
+
+.cell.rainbow {
+    background: conic-gradient(from 0deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #feca57, #a55eea, #ff6b6b) !important;
+    background-size: 200% 200%;
+    animation: rainbowSpin 3s linear infinite;
+    box-shadow: 
+        inset 0 2px 4px rgba(255, 255, 255, 0.4),
+        0 0 25px rgba(255, 255, 255, 0.5),
+        0 4px 15px rgba(0, 0, 0, 0.2) !important;
+}
+
+.cell.rainbow::before {
+    content: '🌈';
+    font-size: 45px;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4));
+}
+
+@keyframes rainbowSpin {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+}
+
+
+
+/* 爆炸效果增强 */
+.explosion-wave {
+    position: absolute;
+    border: 3px solid #ff6b6b;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 999;
+    animation: explosionWave 1s ease-out forwards;
+}
+
+@keyframes explosionWave {
+    0% {
+        width: 0;
+        height: 0;
+        opacity: 1;
+    }
+    100% {
+        width: 200px;
+        height: 200px;
+        opacity: 0;
+    }
+}
+
+/* 魔性动画效果 */
+@keyframes screenShake {
+    0%, 100% { transform: translate(0, 0); }
+    10% { transform: translate(-5px, -2px); }
+    20% { transform: translate(5px, 2px); }
+    30% { transform: translate(-3px, 4px); }
+    40% { transform: translate(3px, -4px); }
+    50% { transform: translate(-2px, 2px); }
+    60% { transform: translate(2px, -2px); }
+    70% { transform: translate(-1px, 3px); }
+    80% { transform: translate(1px, -3px); }
+    90% { transform: translate(-1px, 1px); }
+}
+
+@keyframes crazyTextFloat {
+    0% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(-30px) scale(1.2);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-60px) scale(0.8);
+    }
+}
+
+@keyframes feverMode {
+    0%, 100% {
+        filter: hue-rotate(0deg) brightness(1);
+        transform: scale(1);
+    }
+    25% {
+        filter: hue-rotate(90deg) brightness(1.2);
+        transform: scale(1.02);
+    }
+    50% {
+        filter: hue-rotate(180deg) brightness(1.4);
+        transform: scale(1.05);
+    }
+    75% {
+        filter: hue-rotate(270deg) brightness(1.2);
+        transform: scale(1.02);
+    }
+}
+
+@keyframes crazyFlash {
+    0%, 100% {
+        background: transparent;
+        filter: brightness(1);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        background: rgba(255, 0, 102, 0.1);
+        filter: brightness(1.5) saturate(2);
+    }
+    20%, 40%, 60%, 80% {
+        background: rgba(255, 215, 0, 0.1);
+        filter: brightness(1.8) saturate(1.5);
+    }
+}
+
+@keyframes coinFall {
+    0% {
+        transform: translateY(-50px) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(calc(100vh + 50px)) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+/* 狂热模式特效 */
+.fever-mode {
+    animation: feverMode 1s infinite !important;
+}
+
+/* 疯狂模式特效 */
+.crazy-mode {
+    animation: crazyFlash 0.5s infinite !important;
+}
+
+/* 逐格子下落动画优化 */
+.cell-falling {
+    transition: transform 0.12s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+
+.cell-falling-fast {
+    transition: transform 0.08s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+
+/* 响应式设计 */
+@media (max-width: 1200px) {
+    .game-layout {
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+    }
+    
+    .score-panel {
+        width: 100%;
+        max-width: 500px;
+        position: static;
+        top: auto;
+    }
+    
+    .score-section {
+        flex-direction: row;
+        gap: 15px;
+    }
+    
+    .score-item {
+        flex: 1;
+        padding: 15px;
+    }
+    
+    .score-value {
+        font-size: 28px;
+    }
+    
+    .game-board {
+        width: 520px;
+        height: 520px;
+    }
+    
+    .game-container {
+        min-width: auto;
+        padding: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+        font-size: 16px;
+    }
+    
+    .game-layout {
+        padding-bottom: 10px;
+        min-height: calc(100vh - 100px);
+    }
+    
+    .score-header h1 {
+        font-size: 32px;
+    }
+    
+    .score-label {
+        font-size: 16px;
+    }
+    
+    .score-value {
+        font-size: 24px;
+    }
+    
+    .game-board {
+        width: 450px;
+        height: 450px;
+        padding: 18px;
+        gap: 5px;
+    }
+    
+    .game-container {
+        min-width: auto;
+        padding: 20px;
+    }
+    
+    .cell {
+        font-size: 24px;
+    }
+    
+    .game-controls {
+        gap: 15px;
+        margin: 20px 0 15px 0;
+    }
+    
+    .btn {
+        padding: 12px 24px;
+        font-size: 16px;
+        min-width: 120px;
+    }
+}
+
+@media (max-width: 480px) {
+    .score-section {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .score-item {
+        padding: 12px;
+    }
+    
+    .game-board {
+        width: 340px;
+        height: 340px;
+        padding: 15px;
+        gap: 4px;
+    }
+    
+    .cell {
+        font-size: 24px;
+        border-radius: 10px;
+    }
+    
+    .cell.color-0::before, 
+    .cell.color-1::before, 
+    .cell.color-2::before, 
+    .cell.color-3::before, 
+    .cell.color-4::before, 
+    .cell.color-5::before {
+        font-size: 30px;
+    }
+    
+    .game-controls {
+        flex-direction: column;
+        gap: 15px;
+        margin: 15px 0 10px 0;
+    }
+    
+    .btn {
+        width: 100%;
+        max-width: 280px;
+        padding: 14px 28px;
+        font-size: 16px;
+    }
+    
+    .tutorial-modal .modal-content {
+        padding: 25px;
+        margin: 20px;
+    }
+    
+    .tutorial-controls {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .tutorial-controls .btn {
+        width: 100%;
+    }
+}
