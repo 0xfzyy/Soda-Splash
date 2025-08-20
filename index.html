@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>消消乐游戏</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-layout">
+        <!-- 左侧积分板 -->
+        <div class="score-panel">
+            <div class="score-header">
+                <h1>🎮 消消乐</h1>
+            </div>
+            
+            <div class="score-section">
+                <div class="score-item">
+                    <div class="score-label">关卡</div>
+                    <div class="score-value" id="level">1</div>
+                </div>
+                
+                <div class="score-item">
+                    <div class="score-label">得分</div>
+                    <div class="score-value" id="score">0</div>
+                </div>
+                
+                <div class="score-item">
+                    <div class="score-label">目标</div>
+                    <div class="score-value" id="target">1000</div>
+                </div>
+                
+                <div class="score-item">
+                    <div class="score-label">步数</div>
+                    <div class="score-value" id="moves">30</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 右侧游戏区域 -->
+        <div class="game-container">
+            <div class="game-board" id="gameBoard">
+                <!-- 游戏网格将在这里动态生成 -->
+            </div>
+            
+            <div class="game-controls">
+                <button id="newGameBtn" class="btn btn-primary">新游戏</button>
+                <button id="hintBtn" class="btn btn-secondary">提示</button>
+                <button id="shuffleBtn" class="btn btn-secondary">重新洗牌</button>
+            </div>
+            
+            <div class="game-info">
+                <p>点击或拖拽交换相邻方块，三个或更多相同方块连线消除！<br>消除4个获得💣炸弹，消除5个获得🌈彩虹球</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 引导界面 -->
+    <div id="tutorialModal" class="modal tutorial-modal show">
+        <div class="modal-content tutorial-content">
+            <div class="tutorial-header">
+                <h2>🎮 欢迎来到消消乐世界！</h2>
+                <div class="tutorial-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="tutorialProgress"></div>
+                    </div>
+                    <span class="progress-text"><span id="currentStep">1</span> / <span id="totalSteps">4</span></span>
+                </div>
+            </div>
+            
+            <div class="tutorial-body">
+                <div class="tutorial-step active" data-step="1">
+                    <div class="tutorial-icon">🎯</div>
+                    <h3>游戏目标</h3>
+                    <p>交换相邻的方块，让三个或更多相同颜色的方块连成一线即可消除！<br>在30步内达到1000分即可获胜！</p>
+                </div>
+                
+                <div class="tutorial-step" data-step="2">
+                    <div class="tutorial-icon">🖱️</div>
+                    <h3>操作方式</h3>
+                    <p>你可以<strong>点击</strong>两个相邻的方块进行交换，<br>也可以<strong>拖拽</strong>方块到相邻位置！</p>
+                </div>
+                
+                <div class="tutorial-step" data-step="3">
+                    <div class="tutorial-icon">💎</div>
+                    <h3>特殊道具</h3>
+                    <p>消除4个方块可获得<span class="bomb-demo">💣</span>炸弹！<br>消除5个方块可获得<span class="rainbow-demo">🌈</span>彩虹球！<br>使用它们来创造更大的连击！</p>
+                </div>
+                
+                <div class="tutorial-step" data-step="4">
+                    <div class="tutorial-icon">⭐</div>
+                    <h3>准备好了吗？</h3>
+                    <p>现在你已经了解了所有玩法！<br>让我们开始这个精彩的消消乐之旅吧！</p>
+                </div>
+            </div>
+            
+            <div class="tutorial-controls">
+                <button id="prevStepBtn" class="btn btn-secondary" disabled>上一步</button>
+                <button id="skipTutorialBtn" class="btn btn-outline">跳过教程</button>
+                <button id="nextStepBtn" class="btn btn-primary">下一步</button>
+                <button id="startGameBtn" class="btn btn-primary" style="display: none;">开始游戏</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 游戏结束弹窗 -->
+    <div id="gameOverModal" class="modal">
+        <div class="modal-content">
+            <h2 id="gameOverTitle">游戏结束</h2>
+            <p id="gameOverMessage">恭喜你完成了游戏！</p>
+            <div class="modal-controls">
+                <button id="playAgainBtn" class="btn btn-primary">再来一局</button>
+                <button id="showTutorialBtn" class="btn btn-secondary">查看教程</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
